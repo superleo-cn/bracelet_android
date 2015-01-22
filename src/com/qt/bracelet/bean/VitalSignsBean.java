@@ -1,4 +1,4 @@
-package com.qt.watch.bean;
+package com.qt.bracelet.bean;
 
 /** 
  * @ClassName: VitalSignsBean 

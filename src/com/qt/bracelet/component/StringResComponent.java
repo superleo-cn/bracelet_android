@@ -1,4 +1,4 @@
-package com.qt.watch.component;
+package com.qt.bracelet.component;
 
 import com.googlecode.androidannotations.annotations.EBean;
 import com.googlecode.androidannotations.annotations.res.StringRes;

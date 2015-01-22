@@ -1,4 +1,4 @@
-package com.qt.watch.component;
+package com.qt.bracelet.component;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.os.AsyncTask;
 import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.EBean;
 import com.googlecode.androidannotations.annotations.RootContext;
-import com.qt.watch.dialog.MyProcessDialog;
+import com.qt.bracelet.dialog.MyProcessDialog;
 
 /**
  * 更新组件，因为要调用activey类，所以没法做成Singleton

@@ -1,4 +1,4 @@
-package com.qt.watch.component;
+package com.qt.bracelet.component;
 
 import java.util.Locale;
 
@@ -14,6 +14,7 @@ import com.googlecode.androidannotations.annotations.EBean;
 import com.googlecode.androidannotations.annotations.RootContext;
 import com.googlecode.androidannotations.annotations.sharedpreferences.Pref;
 import com.googlecode.androidannotations.api.Scope;
+import com.qt.bracelet.component.SharedPreferencesComponent_;
 
 /**
  * 更新组件

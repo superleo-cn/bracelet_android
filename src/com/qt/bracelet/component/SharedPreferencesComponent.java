@@ -1,4 +1,4 @@
-package com.qt.watch.component;
+package com.qt.bracelet.component;
 
 
 import com.googlecode.androidannotations.annotations.sharedpreferences.DefaultBoolean;

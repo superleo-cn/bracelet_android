@@ -1,9 +1,9 @@
-package com.qt.watch.common;
+package com.qt.bracelet.common;
 
 import com.activeandroid.app.Application;
 import com.googlecode.androidannotations.annotations.EApplication;
 import com.googlecode.androidannotations.annotations.sharedpreferences.Pref;
-import com.qt.watch.component.SharedPreferencesComponent_;
+import com.qt.bracelet.component.SharedPreferencesComponent_;
 
 /** 
 * @ClassName: QTApp 

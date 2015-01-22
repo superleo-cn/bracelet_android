@@ -1,8 +1,8 @@
-package com.qt.watch.mapping;
+package com.qt.bracelet.mapping;
 
 import java.util.Map;
 
-import com.qt.watch.common.RestHelper;
+import com.qt.bracelet.common.RestHelper;
 
 /** 
  * @ClassName: VitalSignsMapping 

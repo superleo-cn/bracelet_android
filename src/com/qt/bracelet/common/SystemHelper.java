@@ -1,4 +1,4 @@
-package com.qt.watch.common;
+package com.qt.bracelet.common;
 
 import java.io.File;
 import java.net.Inet4Address;

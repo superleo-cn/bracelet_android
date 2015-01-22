@@ -1,4 +1,4 @@
-package com.qt.watch.component;
+package com.qt.bracelet.component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,9 +6,9 @@ import java.util.Map;
 import android.os.AsyncTask;
 
 import com.googlecode.androidannotations.annotations.EBean;
-import com.qt.watch.bean.VitalSignsBean;
-import com.qt.watch.common.Constants;
-import com.qt.watch.mapping.VitalSignsMapping;
+import com.qt.bracelet.bean.VitalSignsBean;
+import com.qt.bracelet.common.Constants;
+import com.qt.bracelet.mapping.VitalSignsMapping;
 
 /** 
  * @ClassName: ObtainVitalSignsComponent 

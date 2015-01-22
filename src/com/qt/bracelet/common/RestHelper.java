@@ -5,7 +5,7 @@
  *  site: http://t.qq.com/hjgang2012
  *  email: hjgang@yahoo.cn
  */
-package com.qt.watch.common;
+package com.qt.bracelet.common;
 
 import java.util.Map;
 

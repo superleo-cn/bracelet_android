@@ -1,4 +1,4 @@
-package com.qt.watch.mapping;
+package com.qt.bracelet.mapping;
 
 import java.util.List;
 

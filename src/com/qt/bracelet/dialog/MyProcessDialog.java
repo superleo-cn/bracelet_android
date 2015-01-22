@@ -1,4 +1,4 @@
-package com.qt.watch.dialog;
+package com.qt.bracelet.dialog;
 
 import com.qt.watch.R;
 

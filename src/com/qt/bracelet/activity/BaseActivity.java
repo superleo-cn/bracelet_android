@@ -1,4 +1,4 @@
-package com.qt.watch.activity;
+package com.qt.bracelet.activity;
 
 import com.googlecode.androidannotations.annotations.EActivity;
 

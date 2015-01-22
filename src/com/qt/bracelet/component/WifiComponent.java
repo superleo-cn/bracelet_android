@@ -1,4 +1,4 @@
-package com.qt.watch.component;
+package com.qt.bracelet.component;
 
 import java.net.SocketException;
 
@@ -7,7 +7,7 @@ import android.content.Context;
 import com.googlecode.androidannotations.annotations.EBean;
 import com.googlecode.androidannotations.annotations.RootContext;
 import com.googlecode.androidannotations.api.Scope;
-import com.qt.watch.common.SystemHelper;
+import com.qt.bracelet.common.SystemHelper;
 
 /**
  * 更新组件

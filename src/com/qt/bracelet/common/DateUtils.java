@@ -1,4 +1,4 @@
-package com.qt.watch.common;
+package com.qt.bracelet.common;
 
 import java.util.Date;
 
