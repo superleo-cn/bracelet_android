@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.UUID;
 
-import com.qt.watch.R;
+import com.qt.bracelet.R;
 
 import android.content.ContentResolver;
 import android.content.Context;

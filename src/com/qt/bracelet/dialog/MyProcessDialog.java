@@ -1,6 +1,6 @@
 package com.qt.bracelet.dialog;
 
-import com.qt.watch.R;
+import com.qt.bracelet.R;
 
 import android.app.Dialog;
 import android.content.Context;

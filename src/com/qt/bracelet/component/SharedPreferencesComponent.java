@@ -1,7 +1,5 @@
 package com.qt.bracelet.component;
 
-
-import com.googlecode.androidannotations.annotations.sharedpreferences.DefaultBoolean;
 import com.googlecode.androidannotations.annotations.sharedpreferences.DefaultLong;
 import com.googlecode.androidannotations.annotations.sharedpreferences.DefaultString;
 import com.googlecode.androidannotations.annotations.sharedpreferences.SharedPref;
@@ -14,51 +12,7 @@ public interface SharedPreferencesComponent {
 	@DefaultString("zh")
 	String language();
 
-	@DefaultString("0.9")
-	String discount();
-
-	@DefaultString("0.2")
-	String packageCost();
-
-	@DefaultString("")
-	String printIp();
-
-	@DefaultString("0")
-	String shopId();
-
-	@DefaultLong(30)
+	@DefaultLong(10)
 	long time();
 	
-	@DefaultString("")
-	String shopName();
-		
-	@DefaultString("")
-	String shopAddress();
-	
-	@DefaultString("")
-	String shopContact();
-	
-	@DefaultString("")
-	String shopWebsite();
-	
-	@DefaultString("")
-	String shopEmail();
-	
-	@DefaultString("")
-	public String openTime();
-	
-	@DefaultString("")
-	public String gstRegNo();
-	
-	@DefaultString("")
-	public String gstRate();
-	
-	@DefaultString("")
-	public String serviceRate();
-	
-	@DefaultString("")
-	public String weChat();
-	
-	@DefaultBoolean(false)
-	public boolean kichenPrinter();
 }

@@ -2,7 +2,7 @@ package com.qt.bracelet.component;
 
 import com.googlecode.androidannotations.annotations.EBean;
 import com.googlecode.androidannotations.annotations.res.StringRes;
-import com.qt.watch.R;
+import com.qt.bracelet.R;
 
 /** 
 * @ClassName: StringResComponent 

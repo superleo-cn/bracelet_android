@@ -71,10 +71,6 @@ public class QTApp extends Application {
 		this.shopCode = shopCode;
 	}
 
-	public String getShopId() {
-		return myPrefs.shopId().get();
-	}
-
 	public boolean isSuperAdmin() {
 		return superAdmin;
 	}
