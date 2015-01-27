@@ -4,7 +4,13 @@ import com.googlecode.androidannotations.annotations.sharedpreferences.DefaultLo
 import com.googlecode.androidannotations.annotations.sharedpreferences.DefaultString;
 import com.googlecode.androidannotations.annotations.sharedpreferences.SharedPref;
 
-// 用接口代替直接使用变量, 方便安全
+/** 
+* @ClassName: SharedPreferencesComponent 
+* @Description: 用接口代替直接使用变量, 方便安全 
+* @author rw 
+* @date 2015-1-27 上午10:03:00 
+*
+*/ 
 @SharedPref(value = SharedPref.Scope.UNIQUE)
 public interface SharedPreferencesComponent {
 
@@ -12,7 +18,7 @@ public interface SharedPreferencesComponent {
 	@DefaultString("zh")
 	String language();
 
-	@DefaultLong(10)
+	@DefaultLong(1)
 	long time();
 	
 }

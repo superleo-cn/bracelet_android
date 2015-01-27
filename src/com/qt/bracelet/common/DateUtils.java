@@ -4,11 +4,13 @@ import java.util.Date;
 
 import org.apache.commons.lang.time.DateFormatUtils;
 
-/**
- * Date Help Class
- * 
- * @author Hu Bo
- */
+/** 
+* @ClassName: DateUtils 
+* @Description: 日期工具类
+* @author rw 
+* @date 2015-1-27 下午4:59:38 
+*
+*/ 
 public class DateUtils {
 
 	public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
@@ -18,6 +20,10 @@ public class DateUtils {
 
 	public static String dateToStr(Date date, String pattern) {
 		return DateFormatUtils.format(date, pattern);
+	}
+	
+	public static String strToDate(long millis, String pattern){
+		return DateFormatUtils.format(millis, pattern);
 	}
 
 }

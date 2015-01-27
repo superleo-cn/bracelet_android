@@ -1,6 +1,8 @@
 package com.qt.bracelet.component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import android.os.AsyncTask;
@@ -8,7 +10,10 @@ import android.os.AsyncTask;
 import com.googlecode.androidannotations.annotations.EBean;
 import com.qt.bracelet.bean.VitalSignsBean;
 import com.qt.bracelet.common.Constants;
+import com.qt.bracelet.common.DateUtils;
+import com.qt.bracelet.domain.VitalSignsData;
 import com.qt.bracelet.mapping.VitalSignsMapping;
+import com.qt.bracelet.mapping.VitalSignsMapping.VitalSigns;
 
 /** 
  * @ClassName: ObtainVitalSignsComponent 
@@ -70,8 +75,18 @@ public class ObtainVitalSignsComponent {
 		Map<String, String> params = new HashMap<String, String>();
 		VitalSignsMapping data = VitalSignsMapping.postJSON(url, params);
 		if (data.code == Constants.STATUS_SUCCESS) {
-			VitalSignsMapping.VitalSigns vitalSigns = data.datas.get(0);
-			VitalSignsBean vitalSignsBean = new VitalSignsBean();
+			List<VitalSignsMapping.VitalSigns> vsList = (ArrayList<VitalSignsMapping.VitalSigns>) data.datas;
+			for (VitalSigns vitalSigns : vsList) {
+				VitalSignsBean bean = new VitalSignsBean();
+				bean.setBraceletId(vitalSigns.braceletId);
+				bean.setCreateDate(DateUtils.strToDate(Long.parseLong(vitalSigns.createDate), DateUtils.YYYY_MM_DD_HH_MM_SS));
+				bean.setId(vitalSigns.id);
+				bean.setMotionState(vitalSigns.motionState);
+				bean.setPulseState(vitalSigns.pulseState);
+				bean.setTemperature(vitalSigns.temperature);
+				VitalSignsData.save(bean);
+			}
+		} else {
 			
 		}
 		return data.code;

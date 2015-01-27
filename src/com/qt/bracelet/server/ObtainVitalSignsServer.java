@@ -6,7 +6,9 @@ import java.util.TimerTask;
 import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.EService;
 import com.googlecode.androidannotations.annotations.sharedpreferences.Pref;
+import com.qt.bracelet.component.ObtainVitalSignsComponent;
 import com.qt.bracelet.component.SharedPreferencesComponent_;
+import com.qt.bracelet.component.ToastComponent;
 import com.qt.bracelet.component.WifiComponent;
 
 import android.app.Service;
@@ -29,6 +31,12 @@ public class ObtainVitalSignsServer extends Service {
 	
 	@Pref
 	SharedPreferencesComponent_ myPrefs;
+	
+	@Bean
+	ObtainVitalSignsComponent obtainVialSignsComponent;
+	
+	@Bean
+	ToastComponent toastComponent;
 	
 	// 获取数据timer
 	private Timer obtainTimer;
@@ -77,14 +85,12 @@ public class ObtainVitalSignsServer extends Service {
 				public void run() {
 					if (wifiComponent.isConnected()) {
 						try {
-//							dailypaySubmitComponent.submitAll();
-//							orderComponent.submitAll();
-							// toastComponent.show(stringResComponent.allSyncSucc);
+							obtainVialSignsComponent.executeObtainData();
 						} catch (Exception ex) {
 							ex.printStackTrace();
 						}
 					} else {
-						// toastComponent.show(stringResComponent.allSyncErr);
+						 toastComponent.show("数据同步异常");
 					}
 				}
 			});
