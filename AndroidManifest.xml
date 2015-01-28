@@ -28,14 +28,15 @@
 		<meta-data android:name="AA_DB_VERSION" android:value="1" />
 		
         <activity
-            android:name="com.qt.bracelet.activity.MainActivity_"
+            android:name="com.qt.bracelet.activity.LoginActivity_"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".server.ObtainVitalSignsServer_"></service>
+        <activity android:name="com.android.activity.MainActivity_" />
+        <service android:name=".server.ObtainVitalSignsServer_" />
     </application>
 
 </manifest>
