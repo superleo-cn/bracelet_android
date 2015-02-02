@@ -8,14 +8,24 @@ import android.os.AsyncTask;
 import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.EBean;
 import com.googlecode.androidannotations.annotations.RootContext;
+import com.qt.bracelet.activity.BindBraceletActivity_;
+import com.qt.bracelet.activity.BloodPressureActivity_;
+import com.qt.bracelet.activity.MainActivity_;
+import com.qt.bracelet.activity.MotionActivity_;
+import com.qt.bracelet.activity.PulseActivity_;
+import com.qt.bracelet.activity.SettingActivity_;
+import com.qt.bracelet.activity.TemperatureActivity_;
+import com.qt.bracelet.component.ui.BloodPressureComponent_;
+import com.qt.bracelet.component.ui.SettingComponent_;
 import com.qt.bracelet.dialog.MyProcessDialog;
 
-/**
- * 更新组件，因为要调用activey类，所以没法做成Singleton
- * 
- * @author superleo
- * 
- */
+/** 
+* @ClassName: ActivityComponent 
+* @Description: Activity跳转处理组件
+* @author rw 
+* @date 2015-2-2 下午2:26:51 
+*
+*/ 
 @EBean
 public class ActivityComponent {
 
@@ -31,6 +41,34 @@ public class ActivityComponent {
 	Activity activity;
 
 	MyProcessDialog dialog;
+	
+	public void startMain(){
+		startActivityWithTransaction(MainActivity_.class);
+	}
+	
+	public void startMotion(){
+		startActivityWithTransaction(MotionActivity_.class);
+	}
+	
+	public void startSetting(){
+		startActivityWithTransaction(SettingActivity_.class);
+	}
+	
+	public void startBloodPressure(){
+		startActivityWithTransaction(BloodPressureActivity_.class);
+	}
+	
+	public void startPulse(){
+		startActivityWithTransaction(PulseActivity_.class);
+	}
+	
+	public void startTemperature(){
+		startActivityWithTransaction(TemperatureActivity_.class);
+	}
+	
+	public void startBind(){
+		startActivityWithTransaction(BindBraceletActivity_.class);
+	}
 
 	private <T> void startActivityWithTransaction(Class<T> to) {
 		startActivity(to);
@@ -40,7 +78,6 @@ public class ActivityComponent {
 		Intent intent = new Intent();
 		intent.setClass(context, cls);
 		activity.startActivity(intent);
-		activity.finish();
 	}
 
 	class SwitchActivity extends AsyncTask<Class, Void, Integer> {

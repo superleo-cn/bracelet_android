@@ -35,7 +35,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.android.activity.MainActivity_" />
+        <activity android:name=".activity.BindBraceletActivity_" />
+        <activity android:name=".activity.MainActivity_" />
+        <activity android:name=".activity.SettingActivity_" />
+        <activity android:name=".activity.MotionActivity_" />
+        <activity android:name=".activity.BloodPressureActivity_" />
+        <activity android:name=".activity.PulseActivity_" />
+        <activity android:name=".activity.TemperatureActivity_" />
+        
         <service android:name=".server.ObtainVitalSignsServer_" />
     </application>
 
