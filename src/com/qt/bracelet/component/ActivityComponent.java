@@ -15,8 +15,6 @@ import com.qt.bracelet.activity.MotionActivity_;
 import com.qt.bracelet.activity.PulseActivity_;
 import com.qt.bracelet.activity.SettingActivity_;
 import com.qt.bracelet.activity.TemperatureActivity_;
-import com.qt.bracelet.component.ui.BloodPressureComponent_;
-import com.qt.bracelet.component.ui.SettingComponent_;
 import com.qt.bracelet.dialog.MyProcessDialog;
 
 /** 

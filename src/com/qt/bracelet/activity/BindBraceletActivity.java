@@ -19,7 +19,7 @@ public class BindBraceletActivity extends BaseActivity {
 	@Bean
 	ActivityComponent activityComponent;
 	
-	@Click(R.id.bind_tv)
+	@Click(R.id.bind_btn)
 	public void toMain(){
 		activityComponent.startMain();
 	}
