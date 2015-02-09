@@ -25,7 +25,10 @@
             android:id="@+id/login_username_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/username_hit" />
+            android:digits="@string/login_digits"
+            android:hint="@string/username_hit"
+            android:maxLength="32"
+            android:singleLine="true" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,8 +42,11 @@
             android:id="@+id/login_password_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="@string/login_digits"
             android:hint="@string/password_hit"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:singleLine="true" />
     </LinearLayout>
 
     <LinearLayout

@@ -13,7 +13,7 @@ import com.qt.bracelet.component.SharedPreferencesComponent_;
 *  
 */ 
 @EApplication
-public class QTApp extends Application {
+public class BraceletApp extends Application {
 	/** 系统初始化配置文件操作器 */
 	private String username = "";
 	private String userId = "0";

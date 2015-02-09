@@ -6,10 +6,10 @@ import java.util.TimerTask;
 import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.EService;
 import com.googlecode.androidannotations.annotations.sharedpreferences.Pref;
-import com.qt.bracelet.component.ObtainVitalSignsComponent;
 import com.qt.bracelet.component.SharedPreferencesComponent_;
 import com.qt.bracelet.component.ToastComponent;
 import com.qt.bracelet.component.WifiComponent;
+import com.qt.bracelet.component.ui.ObtainVitalSignsComponent;
 
 import android.app.Service;
 import android.content.Intent;

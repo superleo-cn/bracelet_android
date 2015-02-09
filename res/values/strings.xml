@@ -11,5 +11,6 @@
     <string name="login_txt">登陆</string>
     <string name="bind_txt">请输入手环ID：</string>
     <string name="bind_btn">绑定手环</string>
+    <string name="login_digits">._0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ</string>
 
 </resources>

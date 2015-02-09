@@ -1,12 +1,17 @@
 package com.qt.bracelet.activity;
 
+import org.apache.commons.lang.StringUtils;
+
+import android.widget.EditText;
+
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
+import com.googlecode.androidannotations.annotations.ViewById;
 import com.qt.bracelet.R;
 import com.qt.bracelet.component.ActivityComponent;
-import com.qt.bracelet.component.ObtainVitalSignsComponent;
+import com.qt.bracelet.component.ui.LoginComponent;
 
 /**
  * @ClassName: LoginActivity
@@ -22,19 +27,25 @@ public class LoginActivity extends BaseActivity {
 	ActivityComponent activityComponent;
 
 	@Bean
-	ObtainVitalSignsComponent ovsComponent;
+	LoginComponent loginComponent;
+	
+	@ViewById(R.id.login_username_et)
+	EditText login_username_et;
+	
+	@ViewById(R.id.login_password_et)
+	EditText login_password_et;
 
 	@AfterViews
 	public void init() {
-		// ovsComponent.executeObtainData();
-		// if (VitalSignsData.queryAllList().size() <= 0){
-		// startService(new Intent(this, ObtainVitalSignsServer_.class));
-		// }
+		
 	}
 
 	@Click(R.id.login_btn)
 	public void login() {
-		activityComponent.startBind();
+		String username = StringUtils.trim(login_username_et.getText().toString());
+		String password = StringUtils.trim(login_password_et.getText().toString());
+		
+		return;
 	}
 
 }

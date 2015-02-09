@@ -1,4 +1,4 @@
-package com.qt.bracelet.component;
+package com.qt.bracelet.component.ui;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +7,6 @@ import java.util.Map;
 
 import android.os.AsyncTask;
 
-import com.googlecode.androidannotations.annotations.EBean;
 import com.qt.bracelet.bean.VitalSignsBean;
 import com.qt.bracelet.common.Constants;
 import com.qt.bracelet.common.DateUtils;
@@ -16,23 +15,22 @@ import com.qt.bracelet.mapping.VitalSignsMapping;
 import com.qt.bracelet.mapping.VitalSignsMapping.VitalSigns;
 
 /** 
- * @ClassName: ObtainVitalSignsComponent 
- * @Description: 获取生命体征数据组件 
+ * @ClassName: UpdateUrgentListComponent 
+ * @Description: 数据归档组件
  * @author rw 
- * @date 2015-1-19 下午2:49:48 
+ * @date 2015-2-6 下午2:12:30 
  *  
  */
-@EBean
-public class ObtainVitalSignsComponent {
+public class UpdateUrgentListComponent {
 	
 	/**
-	 * 获取生命体征数据
+	 * 数据归档
 	 */
-	public void executeObtainData(){
-		new ObtainVialSigns().execute();
+	public void executeUpdateUrgentList(int ids[]){
+//		new UpdateUrgentList().execute(ids);
 	}
 	
-	abstract class ObtainVitalSignsTask extends AsyncTask<String, Void, Integer>{
+	abstract class UpdateUrgentListTask extends AsyncTask<String, Void, Integer>{
 		
 		abstract Integer doExecute(String... objs);
 
@@ -58,21 +56,22 @@ public class ObtainVitalSignsComponent {
 		
 	}
 	
-	class ObtainVialSigns extends ObtainVitalSignsTask{
+	class UpdateUrgentList extends UpdateUrgentListTask{
 
 		@Override
 		Integer doExecute(String... objs) {
-			return obtainVitalSigns();
+			return updateUrgentList();
 		}
 		
 	}
 	
-	private Integer obtainVitalSigns(){
-		return obtainVitalSigns(Constants.URL_OBTAILVITALSIGNS_PATH);
+	private Integer updateUrgentList(){
+		return updateUrgentList(Constants.URL_UPDATEURGENTLIST_PATH);
 	}
 	
-	private Integer obtainVitalSigns(String url) {
+	private Integer updateUrgentList(String url) {
 		Map<String, String> params = new HashMap<String, String>();
+		params.put("", "");
 		VitalSignsMapping data = VitalSignsMapping.postJSON(url, params);
 		if (data.code == Constants.STATUS_SUCCESS) {
 			List<VitalSignsMapping.VitalSigns> vsList = (ArrayList<VitalSignsMapping.VitalSigns>) data.datas;
