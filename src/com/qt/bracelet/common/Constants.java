@@ -23,10 +23,17 @@ public final class Constants {
 	public static final String APP = "";
 	/** 应用上下文完整路径 */
 	public static final String URL_CONTEXTPATH = PROTOCOL + HOST + PORT;
-	/** 查询所有数据URL路径 */
-	public static final String URL_OBTAILVITALSIGNS_PATH = URL_CONTEXTPATH + "/api/findAll";
-	/** 根据日期查询数据URL路径 example:/api/findByDate/20150112000000 */
-	public static final String URL_OBTAILVITALSIGNSBYDATE_PATH = URL_CONTEXTPATH + "/api/findByDate";
+	/** 登录URL路径 */
+	public static final String URL_LOGIN_PATH = URL_CONTEXTPATH + "/loginJson";
+	/** 根据手环ID获取数据URL路径 example:/api/findUrgentByBracelet/1234567 */
+	public static final String URL_FINDURGENTBYBRACELET_PATH = URL_CONTEXTPATH + "/api/findUrgentByBracelet/";
+	/** 根据时间查询手环对应的数据URL路径 example:api/findByBraceletAndDate/1234567/20150204 */
+	public static final String URL_FINDBYBRACELETANDDATE_PATH = URL_CONTEXTPATH + "/api/findByBraceletAndDate/";
+	/** 根据时间查询手环对应的数据URL路径  */
+	public static final String URL_UPDATEURGENTLIST_PATH = URL_CONTEXTPATH + "/updateUrgentList";
+//	public static final String URL_OBTAILVITALSIGNS_PATH = URL_CONTEXTPATH + "/api/findAll";
+//	/** 根据日期查询数据URL路径 example:/api/findByDate/20150112000000 */
+//	public static final String URL_OBTAILVITALSIGNSBYDATE_PATH = URL_CONTEXTPATH + "/api/findByDate";
 	
 	// 返回结果判断
 	public static final int STATUS_SUCCESS = 1;
