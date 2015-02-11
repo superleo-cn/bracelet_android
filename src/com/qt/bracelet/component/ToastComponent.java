@@ -7,12 +7,13 @@ import com.googlecode.androidannotations.annotations.EBean;
 import com.googlecode.androidannotations.annotations.RootContext;
 import com.googlecode.androidannotations.api.Scope;
 
-/**
- * 更新组件
- * 
- * @author superleo
- * 
- */
+/** 
+* @ClassName: ToastComponent 
+* @Description: 消息提示组件
+* @author rw 
+* @date 2015-2-11 下午7:45:41 
+*
+*/ 
 @EBean(scope = Scope.Singleton)
 public class ToastComponent {
 

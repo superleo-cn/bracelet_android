@@ -44,7 +44,7 @@ public class LoginActivity extends BaseActivity {
 	public void login() {
 		String username = StringUtils.trim(login_username_et.getText().toString());
 		String password = StringUtils.trim(login_password_et.getText().toString());
-		
+		loginComponent.executeLogin(username, password);
 		return;
 	}
 

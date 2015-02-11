@@ -12,5 +12,11 @@
     <string name="bind_txt">请输入手环ID：</string>
     <string name="bind_btn">绑定手环</string>
     <string name="login_digits">._0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ</string>
+    
+    <string name="login_wait">请稍候...</string>
+    <string name="login_failed">登陆失败</string>
+    <string name="login_success">登陆成功</string>
+    <string name="server_error">服务器异常</string>
+    <string name="wifi_error">网络异常</string>
 
 </resources>

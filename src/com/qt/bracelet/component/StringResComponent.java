@@ -16,5 +16,20 @@ public class StringResComponent {
 
 	@StringRes(R.string.load_wait)
 	public String load_wait;
+	
+	@StringRes(R.string.login_failed)
+	public String login_failed;
+	
+	@StringRes(R.string.login_success)
+	public String login_success;
+	
+	@StringRes(R.string.wifi_error)
+	public String wifi_error;
+	
+	@StringRes(R.string.server_error)
+	public String server_error;
+	
+	@StringRes(R.string.load_wait)
+	public String login_wait;
 
 }
