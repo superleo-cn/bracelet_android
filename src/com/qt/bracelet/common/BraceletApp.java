@@ -6,7 +6,7 @@ import com.googlecode.androidannotations.annotations.sharedpreferences.Pref;
 import com.qt.bracelet.component.SharedPreferencesComponent_;
 
 /** 
-* @ClassName: QTApp 
+* @ClassName: BraceletApp 
 * @Description: QTApplication 
 * @author rw 
 * @date 2015-1-19 下午2:10:59 

@@ -1,5 +1,6 @@
 package com.qt.bracelet.mapping;
 
+import java.util.List;
 import java.util.Map;
 
 import com.qt.bracelet.common.RestHelper;
@@ -10,7 +11,7 @@ public class UserMapping extends BasicMapping<UserMapping.User> {
 	
 	public static class User {
 
-//		public String id;
+		public String id;
 
 		public String username;
 
@@ -32,7 +33,7 @@ public class UserMapping extends BasicMapping<UserMapping.User> {
 		
 		public String lastLoginDate;
 
-		public Bracelets bracelet;
+		public List<Bracelets> bracelets;
 	}
 
 	public static class Bracelets {

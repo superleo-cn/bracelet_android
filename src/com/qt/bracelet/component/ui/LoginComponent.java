@@ -20,6 +20,7 @@ import com.qt.bracelet.dialog.MyProcessDialog;
 import com.qt.bracelet.domain.Bracelet;
 import com.qt.bracelet.domain.User;
 import com.qt.bracelet.mapping.UserMapping;
+import com.qt.bracelet.mapping.UserMapping.Bracelets;
 
 /**
  * @ClassName: LoginComponent
@@ -88,6 +89,7 @@ public class LoginComponent {
 		if (data.code == Constants.STATUS_SUCCESS) {
 			// 保存本地用户数据
 			UserMapping.User remoteUser = data.datas.get(0);
+			UserMapping.Bracelets remoteBracelet= remoteUser.bracelets.get(0); 
 			User user = new User();
 //			user.uid = remoteUser.id;
 			user.username = remoteUser.username;
@@ -100,19 +102,19 @@ public class LoginComponent {
 			user.realname = remoteUser.realname;
 			user.userType = remoteUser.userType;
 			user.status = remoteUser.status;
-			user.braceletId = remoteUser.bracelet.id;
+			user.braceletId = remoteBracelet.id;
 			user.save();
 			// 设置本地手环信息
 			Bracelet bracelet = new Bracelet();
-			if(remoteUser.bracelet != null){
-				bracelet.braceletId = remoteUser.bracelet.id;
-				bracelet.createBy = remoteUser.bracelet.createBy;
-				bracelet.createDate = remoteUser.bracelet.createDate;
-				bracelet.modifiedBy = remoteUser.bracelet.modifiedBy;
-				bracelet.modifiedDate = remoteUser.bracelet.modifiedDate;
-				bracelet.name = remoteUser.bracelet.name;
-				bracelet.status = remoteUser.bracelet.status;
-				bracelet.type = remoteUser.bracelet.type;
+			if(remoteUser.bracelets != null){
+				bracelet.braceletId = remoteUser.bracelets.get(0).id;
+				bracelet.createBy = bracelet.createBy;
+				bracelet.createDate = bracelet.createDate;
+				bracelet.modifiedBy = bracelet.modifiedBy;
+				bracelet.modifiedDate = bracelet.modifiedDate;
+				bracelet.name = bracelet.name;
+				bracelet.status = bracelet.status;
+				bracelet.type = bracelet.type;
 				bracelet.save();
 			}
 			setLoginInfo(user);
@@ -193,8 +195,8 @@ public class LoginComponent {
 		User obj = new User();
 //		obj.uid = user.id;
 		obj.username = user.username;
-		if (user.bracelet != null) {
-			obj.braceletId = user.bracelet.id;
+		if (user.bracelets != null) {
+			obj.braceletId = user.bracelets.get(0).id;
 		}
 		return obj;
 	}

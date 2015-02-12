@@ -74,17 +74,17 @@ public class UpdateUrgentListComponent {
 		params.put("", "");
 		VitalSignsMapping data = VitalSignsMapping.postJSON(url, params);
 		if (data.code == Constants.STATUS_SUCCESS) {
-			List<VitalSignsMapping.VitalSigns> vsList = (ArrayList<VitalSignsMapping.VitalSigns>) data.datas;
-			for (VitalSigns vitalSigns : vsList) {
-				VitalSignsBean bean = new VitalSignsBean();
-				bean.setBraceletId(vitalSigns.braceletId);
-				bean.setCreateDate(DateUtils.strToDate(Long.parseLong(vitalSigns.createDate), DateUtils.YYYY_MM_DD_HH_MM_SS));
-				bean.setId(vitalSigns.id);
-				bean.setMotionState(vitalSigns.motionState);
-				bean.setPulseState(vitalSigns.pulseState);
-				bean.setTemperature(vitalSigns.temperature);
-				VitalSignsData.save(bean);
-			}
+//			List<VitalSignsMapping.VitalSigns> vsList = (ArrayList<VitalSignsMapping.VitalSigns>) data.datas;
+//			for (VitalSigns vitalSigns : vsList) {
+//				VitalSignsBean bean = new VitalSignsBean();
+//				bean.setBraceletId(vitalSigns.braceletId);
+//				bean.setCreateDate(DateUtils.strToDate(Long.parseLong(vitalSigns.createDate), DateUtils.YYYY_MM_DD_HH_MM_SS));
+//				bean.setId(vitalSigns.id);
+//				bean.setMotionState(vitalSigns.motionState);
+//				bean.setPulseState(vitalSigns.pulseState);
+//				bean.setTemperature(vitalSigns.temperature);
+//				VitalSignsData.save(bean);
+//			}
 		} else {
 			
 		}

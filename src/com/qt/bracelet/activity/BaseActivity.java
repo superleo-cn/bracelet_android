@@ -19,6 +19,7 @@ import android.view.WindowManager;
 * @date 2014-12-24 下午4:36:05 
 *  
 */ 
+
 @EActivity
 public class BaseActivity extends Activity implements OnTouchListener {
 
