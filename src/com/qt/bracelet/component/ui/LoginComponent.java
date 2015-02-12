@@ -20,7 +20,6 @@ import com.qt.bracelet.dialog.MyProcessDialog;
 import com.qt.bracelet.domain.Bracelet;
 import com.qt.bracelet.domain.User;
 import com.qt.bracelet.mapping.UserMapping;
-import com.qt.bracelet.mapping.UserMapping.Bracelets;
 
 /**
  * @ClassName: LoginComponent
@@ -88,35 +87,40 @@ public class LoginComponent {
 		UserMapping data = UserMapping.postJSON(url, params);
 		if (data.code == Constants.STATUS_SUCCESS) {
 			// 保存本地用户数据
-			UserMapping.User remoteUser = data.datas.get(0);
-			UserMapping.Bracelets remoteBracelet= remoteUser.bracelets.get(0); 
+			UserMapping.User remoteUser = data.datas;
+			UserMapping.Bracelets remoteBracelet = remoteUser.bracelets.get(0);
 			User user = new User();
-//			user.uid = remoteUser.id;
-			user.username = remoteUser.username;
-			user.password = remoteUser.password;
-			user.createBy = remoteUser.createBy;
-			user.createDate = remoteUser.createDate;
-			user.lastLoginDate = remoteUser.lastLoginDate;
-			user.modifiedBy = remoteUser.modifiedBy;
-			user.modifiedDate = remoteUser.modifiedDate;
-			user.realname = remoteUser.realname;
-			user.userType = remoteUser.userType;
-			user.status = remoteUser.status;
-			user.braceletId = remoteBracelet.id;
-			user.save();
-			// 设置本地手环信息
-			Bracelet bracelet = new Bracelet();
-			if(remoteUser.bracelets != null){
-				bracelet.braceletId = remoteUser.bracelets.get(0).id;
-				bracelet.createBy = bracelet.createBy;
-				bracelet.createDate = bracelet.createDate;
-				bracelet.modifiedBy = bracelet.modifiedBy;
-				bracelet.modifiedDate = bracelet.modifiedDate;
-				bracelet.name = bracelet.name;
-				bracelet.status = bracelet.status;
-				bracelet.type = bracelet.type;
-				bracelet.save();
+			if (User.checkLogin(remoteUser.username) != null) {
+				user = getDbUser(remoteUser);
+			} else {
+				user.uid = remoteUser.id;
+				user.username = remoteUser.username;
+				user.password = remoteUser.password;
+				user.createBy = remoteUser.createBy;
+				user.createDate = remoteUser.createDate;
+				user.lastLoginDate = remoteUser.lastLoginDate;
+				user.modifiedBy = remoteUser.modifiedBy;
+				user.modifiedDate = remoteUser.modifiedDate;
+				user.realname = remoteUser.realname;
+				user.userType = remoteUser.userType;
+				user.status = remoteUser.status;
+				user.braceletId = remoteBracelet.braceletId;
+				user.save();
+				// 设置本地手环信息
+				Bracelet bracelet = new Bracelet();
+				if(remoteUser.bracelets != null){
+					bracelet.braceletId = remoteBracelet.braceletId;
+					bracelet.createBy = remoteBracelet.createBy;
+					bracelet.createDate = remoteBracelet.createDate;
+					bracelet.modifiedBy = remoteBracelet.modifiedBy;
+					bracelet.modifiedDate = remoteBracelet.modifiedDate;
+					bracelet.name = remoteBracelet.name;
+					bracelet.status = remoteBracelet.status;
+					bracelet.type = remoteBracelet.type;
+					bracelet.save();
+				}
 			}
+			// 设置APPLICATION全局数据
 			setLoginInfo(user);
 			activityComponent.startBind();
 		}
@@ -193,8 +197,9 @@ public class LoginComponent {
 
 	public User getDbUser(UserMapping.User user) {
 		User obj = new User();
-//		obj.uid = user.id;
+		obj.uid = user.id;
 		obj.username = user.username;
+		obj.realname = user.realname;
 		if (user.bracelets != null) {
 			obj.braceletId = user.bracelets.get(0).id;
 		}

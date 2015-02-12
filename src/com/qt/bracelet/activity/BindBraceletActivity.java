@@ -1,14 +1,14 @@
 package com.qt.bracelet.activity;
 
+import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.Bean;
-import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.qt.bracelet.R;
-import com.qt.bracelet.component.ActivityComponent;
+import com.qt.bracelet.component.ui.ObtainVitalSignsComponent;
 
 /** 
  * @ClassName: BindBracelet 
- * @Description: 绑定手环处理
+ * @Description: 获取绑定手环数据处理
  * @author rw 
  * @date 2015-2-2 下午3:12:44 
  *
@@ -17,10 +17,11 @@ import com.qt.bracelet.component.ActivityComponent;
 public class BindBraceletActivity extends BaseActivity {
 	
 	@Bean
-	ActivityComponent activityComponent;
+	ObtainVitalSignsComponent obtainVitalSignsComponent;
 	
-	@Click(R.id.bind_btn)
-	public void toMain(){
-		activityComponent.startMain();
+	@AfterViews
+	public void init(){
+		obtainVitalSignsComponent.executeObtainData();
 	}
+	
 }

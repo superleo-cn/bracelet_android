@@ -31,5 +31,14 @@ public class StringResComponent {
 	
 	@StringRes(R.string.load_wait)
 	public String login_wait;
+	
+	@StringRes(R.string.update_wait)
+	public String update_wait;
+	
+	@StringRes(R.string.update_success)
+	public String update_success;
+	
+	@StringRes(R.string.update_failed)
+	public String update_failed;
 
 }

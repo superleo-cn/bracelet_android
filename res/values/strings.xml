@@ -18,5 +18,10 @@
     <string name="login_success">登陆成功</string>
     <string name="server_error">服务器异常</string>
     <string name="wifi_error">网络异常</string>
+    
+    <string name="update_wait">数据更新中...</string>
+    
+    <string name="update_success">更新成功</string>
+    <string name="update_failed">更新失败</string>
 
 </resources>

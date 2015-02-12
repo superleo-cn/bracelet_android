@@ -5,12 +5,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 
+import com.googlecode.androidannotations.annotations.App;
+import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.EBean;
+import com.googlecode.androidannotations.annotations.RootContext;
 import com.qt.bracelet.bean.VitalSignsBean;
+import com.qt.bracelet.common.BraceletApp;
 import com.qt.bracelet.common.Constants;
 import com.qt.bracelet.common.DateUtils;
+import com.qt.bracelet.component.ActivityComponent;
+import com.qt.bracelet.component.StringResComponent;
+import com.qt.bracelet.component.ToastComponent;
+import com.qt.bracelet.component.WifiComponent;
+import com.qt.bracelet.dialog.MyProcessDialog;
+import com.qt.bracelet.domain.User;
 import com.qt.bracelet.domain.VitalSignsData;
 import com.qt.bracelet.mapping.VitalSignsMapping;
 import com.qt.bracelet.mapping.VitalSignsMapping.VitalSigns;
@@ -25,10 +37,34 @@ import com.qt.bracelet.mapping.VitalSignsMapping.VitalSigns;
 @EBean
 public class ObtainVitalSignsComponent {
 	
+	@Bean
+	ToastComponent toastComponent;
+	
+	@Bean
+	StringResComponent stringResComponent;
+	
+	@Bean
+	WifiComponent wifiComponent;
+	
+	@Bean
+	ActivityComponent activityComponent;
+	
+	@RootContext
+	Context context;
+	
+	@RootContext
+	Activity activity;
+	
+	@App
+	BraceletApp braceletApp;
+	
+	MyProcessDialog dialog;
+	
 	/**
 	 * 获取生命体征数据
 	 */
 	public void executeObtainData(){
+		dialog = new MyProcessDialog(context, stringResComponent.update_wait);
 		new ObtainVialSigns().execute();
 	}
 	
@@ -43,19 +79,32 @@ public class ObtainVitalSignsComponent {
 
 		@Override
 		protected void onPostExecute(Integer result) {
-			super.onPostExecute(result);
+			dialog.dismiss();
+			switch (result) {
+			case Constants.STATUS_FAILED:
+				toastComponent.show(stringResComponent.update_failed);
+				break;
+			case Constants.STATUS_SUCCESS:
+				toastComponent.show(stringResComponent.update_success);
+				break;
+			case Constants.STATUS_SERVER_FAILED:
+				toastComponent.show(stringResComponent.server_error);
+				break;
+			case Constants.STATUS_NETWORK_ERROR:
+				toastComponent.show(stringResComponent.wifi_error);
+				break;
+			}
 		}
 
 		@Override
 		protected void onPreExecute() {
-			super.onPreExecute();
+			dialog.show();
 		}
 
 		@Override
 		protected void onProgressUpdate(Void... values) {
 			super.onProgressUpdate(values);
 		}
-		
 	}
 	
 	class ObtainVialSigns extends ObtainVitalSignsTask{
@@ -64,33 +113,40 @@ public class ObtainVitalSignsComponent {
 		Integer doExecute(String... objs) {
 			return obtainVitalSigns();
 		}
-		
 	}
 	
-	private Integer obtainVitalSigns(){
-		return obtainVitalSigns(Constants.URL_FINDBYBRACELETANDDATE_PATH+"1234567" + "/20150204");
+	private Integer obtainVitalSigns(){ // 获取手环ID，从而获取手环数据
+		User user = User.checkLogin(braceletApp.getUsername());
+		if (user == null) {
+			toastComponent.show("用户不存在");
+			return Constants.STATUS_NETWORK_ERROR;
+		} else {
+			return obtainVitalSigns(Constants.URL_FINDURGENTBYBRACELET_PATH + user.braceletId);
+		}
 	}
 	
 	private Integer obtainVitalSigns(String url) {
 		Map<String, String> params = new HashMap<String, String>();
-//		params.put("username", "leo");
-//		params.put("password", "123");
 		VitalSignsMapping data = VitalSignsMapping.postJSON(url, params);
 		if (data.code == Constants.STATUS_SUCCESS) {
-//			List<VitalSignsMapping.VitalSigns> vsList = (ArrayList<VitalSignsMapping.VitalSigns>) data.datas;
-//			for (VitalSigns vitalSigns : vsList) {
-//				VitalSignsBean bean = new VitalSignsBean();
-//				bean.setBraceletId(vitalSigns.braceletId);
-//				bean.setCreateDate(DateUtils.strToDate(Long.parseLong(vitalSigns.createDate), DateUtils.YYYY_MM_DD_HH_MM_SS));
-//				bean.setId(vitalSigns.id);
-//				bean.setMotionState(vitalSigns.motionState);
-//				bean.setPulseState(vitalSigns.pulseState);
-//				bean.setTemperature(vitalSigns.temperature);
-//				VitalSignsData.save(bean);
-//			}
-		} else {
-			
+			List<VitalSignsMapping.VitalSigns> vsList = (ArrayList<VitalSignsMapping.VitalSigns>) data.datas;
+			for (VitalSigns vitalSigns : vsList) {
+				VitalSignsBean bean = new VitalSignsBean();
+				bean.setBraceletId(vitalSigns.braceletId);
+				bean.setCreateDate(DateUtils.strToDate(Long.parseLong(vitalSigns.createDate), DateUtils.YYYY_MM_DD_HH_MM_SS));
+				bean.setId(vitalSigns.id);
+				bean.setMotionState(vitalSigns.motionState);
+				bean.setPulseState(vitalSigns.pulseState);
+				bean.setTemperature(vitalSigns.temperature);
+				bean.setSbp(vitalSigns.sbp);
+				bean.setDbp(vitalSigns.dbp);
+				bean.setArchive(vitalSigns.archive);
+				bean.setWarning(vitalSigns.warning);
+				VitalSignsData.save(bean);
+			}
 		}
+		activityComponent.startMain();
+		activity.finish();
 		return data.code;
 	}
 

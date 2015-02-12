@@ -23,6 +23,7 @@ public final class Constants {
 	public static final String APP = "";
 	/** 应用上下文完整路径 */
 	public static final String URL_CONTEXTPATH = PROTOCOL + HOST + PORT;
+	
 	/** 登录URL路径 */
 	public static final String URL_LOGIN_PATH = URL_CONTEXTPATH + "/loginJson";
 	/** 根据手环ID获取数据URL路径 example:/api/findUrgentByBracelet/1234567 */
@@ -40,8 +41,5 @@ public final class Constants {
 	public static final int STATUS_FAILED = 0;
 	public static final int STATUS_SERVER_FAILED = -1;
 	public static final int STATUS_NETWORK_ERROR = -2;
-	
-	// 运动状态
-	
 	
 }

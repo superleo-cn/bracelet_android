@@ -18,9 +18,6 @@ public class BraceletApp extends Application {
 	private String username = "";
 	private String userId = "0";
 	private String userType = "";
-	private String shopName = "";
-	private String shopCode = "";
-	private boolean superAdmin = false;
 
 	@Pref
 	SharedPreferencesComponent_ myPrefs;
@@ -53,30 +50,6 @@ public class BraceletApp extends Application {
 
 	public void setUserId(String userId) {
 		this.userId = userId;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
-	}
-
-	public String getShopCode() {
-		return shopCode;
-	}
-
-	public void setShopCode(String shopCode) {
-		this.shopCode = shopCode;
-	}
-
-	public boolean isSuperAdmin() {
-		return superAdmin;
-	}
-
-	public void setSuperAdmin(boolean superAdmin) {
-		this.superAdmin = superAdmin;
 	}
 
 }

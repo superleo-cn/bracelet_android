@@ -13,12 +13,14 @@ import org.apache.commons.lang.StringUtils;
 
 import com.google.gson.Gson;
 
-/**
- * HttpClient来发请求并返回字符串内容的工具类<br/>
- * 注意：需要添加权限&lt;uses-permission android:name="android.permission.INTERNET"/&gt;
- * 
- * @author hjgang
- */
+/** 
+* @ClassName: RestHelper 
+* @Description: HttpClient来发请求并返回字符串内容的工具类
+* 注意：需要添加权限&lt;uses-permission android:name="android.permission.INTERNET"/&gt;
+* @author rw 
+* @date 2015-2-12 上午10:22:28 
+*
+*/ 
 public class RestHelper {
 
 	static Gson gson = new Gson();

@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.qt.bracelet.common.RestHelper;
 
-public class UserMapping extends BasicMapping<UserMapping.User> {
+public class UserMapping extends BasicObjectMapping<UserMapping.User> {
 
 	private static final UserMapping mapping = new UserMapping();
 	

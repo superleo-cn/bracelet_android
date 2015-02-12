@@ -20,6 +20,10 @@ public class VitalSignsMapping extends BasicMapping<VitalSignsMapping.VitalSigns
 		public String motionState;
 		public String pulseState;
 		public String temperature;
+		public String sbp;
+		public String dbp;
+		public String warning;
+		public String archive;
 		public String braceletId;
 		public String createDate;
 	}

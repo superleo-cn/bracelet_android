@@ -37,13 +37,26 @@ public class VitalSignsData extends Model {
 
 	@Column(name = "createDate")
 	public String createDate;
-
+	
+	@Column(name = "sbp")
+	public String sbp;
+	
+	@Column(name = "dbp")
+	public String dbp;
+	
+	@Column(name = "warning")
+	public String warning;
+	
+	@Column(name = "archive")
+	public String archive;
+	
 	@Override
 	public String toString() {
 		return "VitalSignsData [vsId=" + vsId + ", motionState=" + motionState
 				+ ", pulseState=" + pulseState + ", temperature=" + temperature
 				+ ", braceletId=" + braceletId + ", createDate=" + createDate
-				+ "]";
+				+ ", sbp=" + sbp + ", dbp=" + dbp + ", warning=" + warning
+				+ ", archive=" + archive + "]";
 	}
 
 	/**
@@ -79,6 +92,10 @@ public class VitalSignsData extends Model {
 			vsData.pulseState = bean.getPulseState();
 			vsData.temperature = bean.getTemperature();
 			vsData.createDate = bean.getCreateDate();
+			vsData.sbp = bean.getSbp();
+			vsData.dbp = bean.getDbp();
+			vsData.warning = bean.getWarning();
+			vsData.archive = bean.getArchive();
 			vsData.save();
 		}
 	}
