@@ -28,7 +28,7 @@
 		<meta-data android:name="AA_DB_VERSION" android:value="1" />
 		
         <activity
-            android:name="com.qt.bracelet.activity.LoginActivity_"
+            android:name="com.qt.bracelet.activity.MainActivity_"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.BindBraceletActivity_" />
-        <activity android:name=".activity.MainActivity_" />
+        <activity android:name=".activity.LoginActivity_" />
         <activity android:name=".activity.SettingActivity_" />
         <activity android:name=".activity.MotionActivity_" />
         <activity android:name=".activity.BloodPressureActivity_" />

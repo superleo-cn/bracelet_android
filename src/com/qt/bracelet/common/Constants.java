@@ -42,4 +42,8 @@ public final class Constants {
 	public static final int STATUS_SERVER_FAILED = -1;
 	public static final int STATUS_NETWORK_ERROR = -2;
 	
+	// 数据是否归档
+	public static final int ARCHIVE_YES = 1;
+	public static final int ARCHIVE_NO = 0;
+	
 }
