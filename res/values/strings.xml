@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">QT-WATCH</string>
+    <string name="app_name">HTOUCH</string>
     <string name="action_settings">Settings</string>
     
     <string name="load_wait">Loading...</string>

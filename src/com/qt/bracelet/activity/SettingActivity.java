@@ -1,5 +1,6 @@
 package com.qt.bracelet.activity;
 
+import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.qt.bracelet.R;
 
@@ -12,5 +13,10 @@ import com.qt.bracelet.R;
  */
 @EActivity(R.layout.activity_setting)
 public class SettingActivity extends BaseActivity {
+	
+	@Click(R.id.back_iv)
+	public void back(){
+		this.finish();
+	}
 
 }
