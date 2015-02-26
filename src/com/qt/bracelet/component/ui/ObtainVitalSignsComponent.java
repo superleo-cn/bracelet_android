@@ -24,6 +24,7 @@ import com.qt.bracelet.component.WifiComponent;
 import com.qt.bracelet.dialog.MyProcessDialog;
 import com.qt.bracelet.domain.User;
 import com.qt.bracelet.domain.VitalSignsData;
+import com.qt.bracelet.mapping.StatusMapping;
 import com.qt.bracelet.mapping.VitalSignsMapping;
 import com.qt.bracelet.mapping.VitalSignsMapping.VitalSigns;
 
@@ -48,6 +49,9 @@ public class ObtainVitalSignsComponent {
 	
 	@Bean
 	ActivityComponent activityComponent;
+	
+	@Bean
+	ArchiveComponent archiveComponent;
 	
 	@RootContext
 	Context context;
@@ -125,16 +129,24 @@ public class ObtainVitalSignsComponent {
 		}
 	}
 	
+	/**
+	 * 获取手环数据，并进行本地保存
+	 * 
+	 * @param url
+	 * @return
+	 */
 	private Integer obtainVitalSigns(String url) {
 		Map<String, String> params = new HashMap<String, String>();
 		VitalSignsMapping data = VitalSignsMapping.postJSON(url, params);
 		if (data.code == Constants.STATUS_SUCCESS) {
 			List<VitalSignsMapping.VitalSigns> vsList = (ArrayList<VitalSignsMapping.VitalSigns>) data.datas;
+			ArrayList<String> ids = new ArrayList<String>();
 			for (VitalSigns vitalSigns : vsList) {
 				VitalSignsBean bean = new VitalSignsBean();
 				bean.setBraceletId(vitalSigns.braceletId);
 				bean.setCreateDate(DateUtils.strToDate(Long.parseLong(vitalSigns.createDate), DateUtils.YYYY_MM_DD_HH_MM_SS));
-				bean.setId(vitalSigns.id);
+				String id = vitalSigns.id;
+				bean.setId(id);
 				bean.setMotionState(vitalSigns.motionState);
 				bean.setPulseState(vitalSigns.pulseState);
 				bean.setTemperature(vitalSigns.temperature);
@@ -143,8 +155,13 @@ public class ObtainVitalSignsComponent {
 				bean.setArchive(vitalSigns.archive);
 				bean.setWarning(vitalSigns.warning);
 				VitalSignsData.save(bean);
+				ids.add(id);
 			}
+			// 归档操作
+			String[] allId = (String[]) ids.toArray();
+			StatusMapping.postJSON(url, params);
 		}
+		
 		activityComponent.startMain();
 		activity.finish();
 		return data.code;

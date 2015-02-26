@@ -131,7 +131,6 @@ public class LoginComponent {
 		try {
 			User user = new User();
 			user.uid = userId;
-//			auditComponent.logAudit(user, Constants.LOGOUT);
 			return Constants.STATUS_SUCCESS;
 		} catch (Exception ex) {
 			ex.printStackTrace();

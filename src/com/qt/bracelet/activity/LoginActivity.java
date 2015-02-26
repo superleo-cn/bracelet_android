@@ -11,11 +11,13 @@ import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.ViewById;
 import com.qt.bracelet.R;
 import com.qt.bracelet.component.ActivityComponent;
+import com.qt.bracelet.component.StringResComponent;
+import com.qt.bracelet.component.ToastComponent;
 import com.qt.bracelet.component.ui.LoginComponent;
 
 /**
  * @ClassName: LoginActivity
- * @Description: 登陆
+ * @Description: 登录
  * @author rw
  * @date 2015-1-28 上午11:39:17
  * 
@@ -29,6 +31,12 @@ public class LoginActivity extends BaseActivity {
 	@Bean
 	LoginComponent loginComponent;
 	
+	@Bean
+	ToastComponent toastComponent;
+	
+	@Bean
+	StringResComponent stringResComponent;
+	
 	@ViewById(R.id.login_username_et)
 	EditText login_username_et;
 	
@@ -39,12 +47,20 @@ public class LoginActivity extends BaseActivity {
 	public void init() {
 		
 	}
-
+	
+	/**
+	 * 登录操作
+	 */
 	@Click(R.id.login_btn)
 	public void login() {
 		String username = StringUtils.trim(login_username_et.getText().toString());
 		String password = StringUtils.trim(login_password_et.getText().toString());
-		loginComponent.executeLogin(username, password);
+		// 验证用户名，密码
+		if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
+			toastComponent.show(stringResComponent.login_nameorpas_notempty);
+		} else {
+			loginComponent.executeLogin(username, password);
+		}
 		return;
 	}
 

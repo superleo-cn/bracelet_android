@@ -40,5 +40,9 @@ public class StringResComponent {
 	
 	@StringRes(R.string.update_failed)
 	public String update_failed;
+	
+	@StringRes(R.string.login_nameorpas_notempty)
+	public String login_nameorpas_notempty;
+	
 
 }
