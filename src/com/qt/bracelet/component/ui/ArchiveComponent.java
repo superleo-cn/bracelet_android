@@ -66,8 +66,8 @@ public class ArchiveComponent {
 	/**
 	 * 获取生命体征数据
 	 */
-	public void archiveData(){
-		new ArchiveVialSigns().execute();
+	public void archiveData(String[] ids){
+		new ArchiveVialSigns().execute(ids);
 	}
 	
 	abstract class ArchiveVitalSignsTask extends AsyncTask<String, Void, Integer>{
