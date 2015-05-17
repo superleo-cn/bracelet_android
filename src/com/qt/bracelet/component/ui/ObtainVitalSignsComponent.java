@@ -125,7 +125,7 @@ public class ObtainVitalSignsComponent {
 			toastComponent.show("用户不存在");
 			return Constants.STATUS_NETWORK_ERROR;
 		} else {
-			return obtainVitalSigns(Constants.URL_FINDURGENTBYBRACELET_PATH + user.braceletId);
+			return obtainVitalSigns(Constants.URL_FINDURGENTBYBRACELET_PATH + user.bracelets.get(0).braceletId);
 		}
 	}
 	
