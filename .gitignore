@@ -11,7 +11,11 @@
 # Generated files
 bin/
 gen/
+generated/
 .apt_generated/
+
+# idea
+.idea
 
 # Gradle files
 .gradle/
