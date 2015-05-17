@@ -33,10 +33,10 @@ public class UserMapping extends BasicObjectMapping<UserMapping.User> {
 		
 		public String lastLoginDate;
 
-		public List<Bracelets> bracelets;
+		public List<Bracelet> braceletList;
 	}
 
-	public static class Bracelets {
+	public static class Bracelet {
 		
 		public String id;
 		
