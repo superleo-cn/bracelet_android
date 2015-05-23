@@ -45,6 +45,8 @@ public class LoginActivity extends BaseActivity {
 
 	@AfterViews
 	public void init() {
+		login_username_et.setText("leo");
+		login_password_et.setText("123");
 		
 	}
 	

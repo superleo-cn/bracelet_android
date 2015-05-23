@@ -32,6 +32,10 @@ public final class Constants {
 	public static final String URL_FINDBYBRACELETANDDATE_PATH = URL_CONTEXTPATH + "/api/findByBraceletAndDate/";
 	/** 根据时间查询手环对应的数据URL路径  */
 	public static final String URL_UPDATEURGENTLIST_PATH = URL_CONTEXTPATH + "/updateUrgentList";
+	/** 根据时间查询手环对应的数据URL路径 example:api/findByBraceletAndDate/1234567/20150204 */
+	public static final String URL_FINDBYLATEST_PATH = URL_CONTEXTPATH + "/api/findLatest/";
+
+
 //	public static final String URL_OBTAILVITALSIGNS_PATH = URL_CONTEXTPATH + "/api/findAll";
 //	/** 根据日期查询数据URL路径 example:/api/findByDate/20150112000000 */
 //	public static final String URL_OBTAILVITALSIGNSBYDATE_PATH = URL_CONTEXTPATH + "/api/findByDate";

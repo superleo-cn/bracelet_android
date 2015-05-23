@@ -1,99 +1,157 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".MainActivity" >
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical"
+              tools:context=".MainActivity" >
 
     <include layout="@layout/main_header" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.6" >
-
-        <com.qt.bracelet.widget.PathView
-            android:id="@+id/pv"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.4"
-        android:orientation="vertical" >
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="center" >
-
-                <TextView
-                    android:id="@+id/motion_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="运动"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="center" >
-
-                <TextView
-                    android:id="@+id/temperature_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="体温"
-                    android:textSize="20sp" />
-            </LinearLayout>
-        </LinearLayout>
+            android:layout_weight="0.6" >
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:orientation="horizontal" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="center" >
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/pulse_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="脉搏"
-                    android:textSize="20sp" />
+                        android:id="@+id/temp"
+                        android:layout_width="200dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:text="@string/temperature"
+                        android:textSize="18sp" />
+
+                <EditText
+                        android:id="@+id/temp_value"
+                        android:layout_width="450dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="65dip"
+                        android:layout_marginRight="20dip"
+                        android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="center" >
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/bloodpressure_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="血压"
-                    android:textSize="20sp" />
+                        android:id="@+id/pulse"
+                        android:layout_width="200dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:text="@string/pulse"
+                        android:textSize="18sp" />
+
+                <EditText
+                        android:id="@+id/pulse_value"
+                        android:layout_width="450dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="65dip"
+                        android:layout_marginRight="20dip"
+                        android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                <TextView
+                        android:id="@+id/sbp"
+                        android:layout_width="200dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:text="@string/sbp"
+                        android:textSize="18sp" />
+
+                <EditText
+                        android:id="@+id/sbp_value"
+                        android:layout_width="450dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="65dip"
+                        android:layout_marginRight="20dip"
+                        android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                <TextView
+                        android:id="@+id/dbp"
+                        android:layout_width="200dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:text="@string/dbp"
+                        android:textSize="18sp" />
+
+                <EditText
+                        android:id="@+id/dbp_value"
+                        android:layout_width="450dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="65dip"
+                        android:layout_marginRight="20dip"
+                        android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                <TextView
+                        android:id="@+id/motion"
+                        android:layout_width="200dip"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:text="@string/motion"
+                        android:textSize="18sp" />
+
+                <EditText
+                        android:id="@+id/motion_value"
+                        android:layout_width="450dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="65dip"
+                        android:layout_marginRight="20dip"
+                        android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                <Button
+                        android:id="@+id/btu_request"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/request"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
