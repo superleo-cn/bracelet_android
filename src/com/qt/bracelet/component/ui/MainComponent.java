@@ -2,7 +2,6 @@ package com.qt.bracelet.component.ui;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.widget.EditText;
 import com.googlecode.androidannotations.annotations.*;
 import com.qt.bracelet.R;
@@ -11,8 +10,7 @@ import com.qt.bracelet.common.Constants;
 import com.qt.bracelet.component.ToastComponent;
 import com.qt.bracelet.domain.User;
 import com.qt.bracelet.mapping.HealDataMapping;
-
-import java.util.HashMap;
+import org.apache.commons.collections4.CollectionUtils;
 
 /**
  * @author rw
@@ -62,21 +60,29 @@ public class MainComponent {
 
     @Background
     public void obtainVitalSigns(User user) {
-        String url = Constants.URL_FINDBYLATEST_PATH + user.bracelets.get(0).braceletId;
-        HealDataMapping data = HealDataMapping.getJSON(url);
-        if (data.code == Constants.STATUS_SUCCESS) {
-            HealDataMapping.HealData bean = data.datas;
-            updateUI(bean);
+        HealDataMapping.HealData bean = null;
+        if(CollectionUtils.isNotEmpty(user.bracelets)){
+            String url = Constants.URL_FINDBYLATEST_PATH + user.bracelets.get(0).braceletId;
+            HealDataMapping data = HealDataMapping.getJSON(url);
+            if (data.code == Constants.STATUS_SUCCESS) {
+                bean = data.datas;
+            }
         }
+        updateUI(bean);
     }
 
     @UiThread
     void updateUI(HealDataMapping.HealData bean) {
-        tempValue.setText(bean.temperature);
-        pulseValue.setText(bean.pulseState);
-        sbpValue.setText(bean.sbp);
-        dbpValue.setText(bean.dbp);
-        motionValue.setText(bean.motionState);
+        if (bean != null) {
+            tempValue.setText(bean.temperature);
+            pulseValue.setText(bean.pulseState);
+            sbpValue.setText(bean.sbp);
+            dbpValue.setText(bean.dbp);
+            motionValue.setText(bean.motionState);
+        } else {
+            toastComponent.show("该用户没有手环。");
+        }
+
     }
 
 }
