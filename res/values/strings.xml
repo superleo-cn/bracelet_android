@@ -17,6 +17,7 @@
     <string name="login_failed">登陆失败</string>
     <string name="login_nameorpas_notempty">用户名或密码不能为空</string>
     <string name="login_success">登陆成功</string>
+    <string name="login_out">注销</string>
     <string name="server_error">服务器异常</string>
     <string name="wifi_error">网络异常</string>
 
@@ -25,12 +26,12 @@
     <string name="update_success">更新成功</string>
     <string name="update_failed">更新失败</string>
 
-
     <string name="temperature">体温</string>
     <string name="sbp">舒张压</string>
     <string name="dbp">收缩压</string>
     <string name="pulse">脉搏</string>
     <string name="motion">运动</string>
     <string name="request">更新数据</string>
+
 
 </resources>

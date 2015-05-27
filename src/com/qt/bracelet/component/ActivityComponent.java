@@ -8,13 +8,7 @@ import android.os.AsyncTask;
 import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.EBean;
 import com.googlecode.androidannotations.annotations.RootContext;
-import com.qt.bracelet.activity.BindBraceletActivity_;
-import com.qt.bracelet.activity.BloodPressureActivity_;
-import com.qt.bracelet.activity.MainActivity_;
-import com.qt.bracelet.activity.MotionActivity_;
-import com.qt.bracelet.activity.PulseActivity_;
-import com.qt.bracelet.activity.SettingActivity_;
-import com.qt.bracelet.activity.TemperatureActivity_;
+import com.qt.bracelet.activity.*;
 import com.qt.bracelet.dialog.MyProcessDialog;
 
 /** 
@@ -39,6 +33,10 @@ public class ActivityComponent {
 	Activity activity;
 
 	MyProcessDialog dialog;
+
+	public void startLogin(){
+		startActivityWithTransaction(LoginActivity_.class);
+	}
 	
 	public void startMain(){
 		startActivityWithTransaction(MainActivity_.class);
@@ -51,7 +49,6 @@ public class ActivityComponent {
 	public void startSetting(){
 		startActivityWithTransaction(SettingActivity_.class);
 	}
-	
 	public void startBloodPressure(){
 		startActivityWithTransaction(BloodPressureActivity_.class);
 	}

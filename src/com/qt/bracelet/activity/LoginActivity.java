@@ -51,20 +51,6 @@ public class LoginActivity extends BaseActivity {
     public void init() {
         login_username_et.setText("leo");
         login_password_et.setText("123");
-
-        JPushInterface.init(getApplicationContext());
-        JPushInterface.setAlias(this.getApplication(), "1234567", new TagAliasCallback() {//使用匿名内部类作为回调类
-            @Override
-            public void gotResult(int arg0, String arg1, Set<String> arg2) {
-                Log.d("JPush", "Jpush setAliasAndTags status: " + arg0);//状态
-//				if(callback != null){
-//					KrollDict map = new KrollDict(); //回调函数的参数
-//					map.put("code", arg0);
-//					callback.callAsync(getKrollObject(),map); //执行回调
-//				}
-            }
-        });
-
     }
 
     /**
